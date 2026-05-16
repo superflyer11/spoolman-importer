@@ -47,7 +47,7 @@ conda activate spoolman-importer
 
 # Install dependencies
 conda install -c conda-forge requests python-dotenv
-pip install PyPDF2 openai python-dotenv
+pip install pypdf openai python-dotenv
 
 # For development (optional)
 conda install -c conda-forge pytest pytest-mock pytest-cov flake8 black
@@ -72,11 +72,12 @@ spoolman-importer/
 │   ├── spoolman_importer.py      # Main script
 │   ├── environment.yml           # Conda environment definition
 │   ├── requirements.txt          # Pip requirements file
-│   └── requirements-dev.txt      # Development requirements
+│   ├── requirements-dev.txt      # Development requirements
+│   └── resources/
+│       ├── color-data.json       # Color name to hex mapping
+│       └── vendor-data.json      # Vendor filament database
 ├── tests/
 │   └── test_spoolman_importer.py # Unit tests
-├── resources/
-│   └── vendor-data.json          # Vendor filament database
 ├── examples/
 │   └── 250603-Bambu.json         # Example JSON input
 └── ReadMe.md                     # This file
