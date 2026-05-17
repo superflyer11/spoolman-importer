@@ -1,0 +1,27 @@
+services:
+  spoolman-importer:
+    build: .
+    container_name: spoolman-importer
+    restart: unless-stopped
+    environment:
+      SPOOLMAN_URL: ${SPOOLMAN_URL:-http://spoolman:8000}
+      PAPERLESS_URL: ${PAPERLESS_URL:-http://paperless-web:8000}
+      PAPERLESS_TOKEN: ${PAPERLESS_TOKEN:-5cc58368aece682f701837b03c768b6db1a344b2}
+      PAPERLESS_IMPORT_TAG: ${PAPERLESS_IMPORT_TAG:-filament}
+      IMPORTER_WEBHOOK_TOKEN: ${IMPORTER_WEBHOOK_TOKEN:-change-me-long-random-token}
+      IMPORTER_BASE_PATH: ${IMPORTER_BASE_PATH:-/importer}
+      IMPORTER_PUBLIC_BASE_URL: ${IMPORTER_PUBLIC_BASE_URL:-https://home.aspiderweb.uk/importer}
+      IMPORTER_DATA_DIR: /data
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    volumes:
+      - spoolman-importer-data:/data
+    networks:
+      - shared_edge
+
+volumes:
+  spoolman-importer-data:
+
+networks:
+  shared_edge:
+    external: true
+    name: shared_edge

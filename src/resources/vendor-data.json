@@ -142,7 +142,7 @@
         "extruder_temp": 230,
         "bed_temp": 90,
         "description": "Hochleistungsmaterial mit biologisch-organischer Zusammensetzung"
-      },
+      }
     },
     "eSUN": {
       "PLA Basic": {
@@ -238,7 +238,7 @@
         "extruder_temp": 250,
         "bed_temp": 90,
         "description": "3DJake ASA"
-      },
+      }
     },
     "SUNLU": {
       "PLA": {

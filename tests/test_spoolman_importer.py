@@ -119,6 +119,13 @@ class TestSpoolmanImporter(unittest.TestCase):
 
         self.assertEqual(invalid, {})
 
+    def test_vendor_resource_json_is_valid(self):
+        vendor_path = Path(__file__).parent.parent / 'src' / 'resources' / 'vendor-data.json'
+        vendor_data = json.loads(vendor_path.read_text(encoding='utf-8'))
+
+        self.assertIn('Bambu Lab', vendor_data['vendors'])
+        self.assertIn('PLA Basic', vendor_data['vendors']['Bambu Lab'])
+
     def test_llm_json_decoder_handles_fenced_array_with_prose(self):
         content = 'Here you go:\n```json\n[{"brand":"TestVendor","material":"PLA","color":"Red"}]\n```'
 
